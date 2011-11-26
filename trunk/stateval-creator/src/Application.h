@@ -2,7 +2,7 @@
 #define APPLICATION_H
 
 #ifdef HAVE_CONFIG_H
-  #include <config.h>
+#include <config.h>
 #endif
 
 #include <gtkmm.h>
@@ -16,18 +16,18 @@ class UMLDrawer;
 class Application : public Gtk::Window
 {
 public:
-  Application (BaseObjectType* cobject,
-               const Glib::RefPtr<Gtk::Builder>& refGlade);
-  virtual ~Application ();
-    
+  Application(BaseObjectType *cobject,
+              const Glib::RefPtr<Gtk::Builder>& refGlade);
+  virtual ~Application();
+
 
 protected:
-  void getGladeWidgets ();
-  void connectSignalHandlers ();
+  void getGladeWidgets();
+  void connectSignalHandlers();
 
   // signal callback functions
-  void on_application_hide ();
-  
+  void on_application_hide();
+
 private:
   Glib::RefPtr<Gtk::Builder> mXMLGlade;
   AppToolBar *mAppToolBar;

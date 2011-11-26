@@ -6,8 +6,8 @@
 
 using namespace std;
 
-Primitive::Primitive ()
-{ 
+Primitive::Primitive()
+{
 }
 
 

@@ -14,22 +14,25 @@ private:
 public:
   T x, y;
 
-  Vector2 () {}
+  Vector2() {}
 
   /// copy constructor
-  Vector2 (const Vector2<T> &v) : x (v.x), y (v.y) {}
+  Vector2(const Vector2<T> &v) : x(v.x), y(v.y) {}
 
   /// construct given two values
   /*!
    * \param _x the x component to the Vector2
    * \param _y the y component to the Vector2
    */
-  Vector2 (const T& _x, const T& _y) : x (_x), y (_y) {}
+  Vector2(const T &_x, const T &_y) : x(_x), y(_y) {}
 
   virtual ~Vector2() {}
 
   /// set all components to zero
-  void zero () {x = y = 0;}
+  void zero()
+  {
+    x = y = 0;
+  }
 
   /// copy values
   Vector2<T>& operator = (const Vector2<T>& v1);
@@ -51,9 +54,9 @@ template <typename T>
 class Vector2decimal : public Vector2<T>
 {
 public:
-  Vector2decimal ()                    : Vector2<T>  () {}
-  Vector2decimal (T _x, T _y)          : Vector2<T>  (_x, _y) {}
-  Vector2decimal (const Vector2<T> &v) : Vector2<T>  (v) {}
+  Vector2decimal()                    : Vector2<T> () {}
+  Vector2decimal(T _x, T _y)          : Vector2<T> (_x, _y) {}
+  Vector2decimal(const Vector2<T> &v) : Vector2<T> (v) {}
 
   virtual ~Vector2decimal() {}
 
@@ -64,17 +67,17 @@ template <typename T>
 class Vector2real : public Vector2<T>
 {
 public:
-  Vector2real ()                    : Vector2<T>  () {}
-  Vector2real (T _x, T _y)          : Vector2<T>  (_x, _y) {}
-  Vector2real (const Vector2<T> &v) : Vector2<T>  (v) {}
+  Vector2real()                    : Vector2<T> () {}
+  Vector2real(T _x, T _y)          : Vector2<T> (_x, _y) {}
+  Vector2real(const Vector2<T> &v) : Vector2<T> (v) {}
 
   virtual ~Vector2real() {}
 
-    /// normalize it
-  void normalize ();
+  /// normalize it
+  void normalize();
 
   /// return the magnitude
-  virtual T getMagnitude () const = 0;
+  virtual T getMagnitude() const = 0;
 
   /// vector_1 /= scalar
   Vector2real<T>& operator /= (const T scalar);
@@ -83,31 +86,31 @@ public:
 class Vector2f : public Vector2real<float>
 {
 public:
-  Vector2f ()                        : Vector2real<float> () {}
-  Vector2f (float _x, float _y)      : Vector2real<float> (_x, _y) {}
-  Vector2f (const Vector2<float> &v) : Vector2real<float> (v) {}
+  Vector2f()                        : Vector2real<float> () {}
+  Vector2f(float _x, float _y)      : Vector2real<float> (_x, _y) {}
+  Vector2f(const Vector2<float> &v) : Vector2real<float> (v) {}
 
   virtual ~Vector2f() {}
 
-  virtual float getMagnitude () const
+  virtual float getMagnitude() const
   {
     // usage of sqrtf is faster than sqrt for float!
-    return sqrtf (x * x + y * y);
+    return sqrtf(x * x + y * y);
   }
 };
 
 class Vector2d : public Vector2real<double>
 {
 public:
-  Vector2d ()                         : Vector2real<double> () {}
-  Vector2d (double _x, double _y)     : Vector2real<double> (_x, _y) {}
-  Vector2d (const Vector2<double> &v) : Vector2real<double> (v) {}
+  Vector2d()                         : Vector2real<double> () {}
+  Vector2d(double _x, double _y)     : Vector2real<double> (_x, _y) {}
+  Vector2d(const Vector2<double> &v) : Vector2real<double> (v) {}
 
   virtual ~Vector2d() {}
 
-  virtual double getMagnitude () const
+  virtual double getMagnitude() const
   {
-    return sqrt (x * x + y * y);
+    return sqrt(x * x + y * y);
   }
 };
 
@@ -118,9 +121,9 @@ typedef Vector2decimal<int> Vector2i;
 /*****************************/
 
 template <typename T>
-void Vector2real<T>::normalize ()
+void Vector2real<T>::normalize()
 {
-  T magnitude = getMagnitude ();
+  T magnitude = getMagnitude();
 
   if (magnitude > 0.0)
   {
@@ -242,19 +245,19 @@ inline Vector2<T> operator + (const Vector2<T>& v1, const Vector2<T>& v2)
 }
 
 /// calculate the distance between two Vector2 (float)
-inline float vectorDistance (const Vector2f &v1, const Vector2f &v2)
+inline float vectorDistance(const Vector2f &v1, const Vector2f &v2)
 {
   Vector2f dist = v1 - v2;
 
-  return dist.getMagnitude ();
+  return dist.getMagnitude();
 }
 
 /// calculate the distance between two Vector2 (double)
-inline double vectorDistance (const Vector2d &v1, const Vector2d &v2)
+inline double vectorDistance(const Vector2d &v1, const Vector2d &v2)
 {
   Vector2d dist = v1 - v2;
 
-  return dist.getMagnitude ();
+  return dist.getMagnitude();
 }
 
 /// << operator for output

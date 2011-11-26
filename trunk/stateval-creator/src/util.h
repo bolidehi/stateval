@@ -29,7 +29,7 @@
 #define UTIL_H 1
 
 #ifdef HAVE_CONFIG_H
-  #include <config.h>
+#include <config.h>
 #endif
 
 #include <cstdlib>
@@ -50,28 +50,28 @@ using std::string;
 using std::vector;
 
 // delete all following 'characters' in 'str'
-void UtilStringDelFollow (std::string &str, const std::string &characters);
+void UtilStringDelFollow(std::string &str, const std::string &characters);
 
 // delete all leading 'characters' in 'str'
-void UtilStringDelLead (std::string &str, const std::string &characters);
+void UtilStringDelLead(std::string &str, const std::string &characters);
 
 // delete all surrounding 'characters' in 'str'
-void UtilStringDelSurround (std::string &str, const std::string &characters);
+void UtilStringDelSurround(std::string &str, const std::string &characters);
 
 // some functions that are very usefull for writing files
-bool hasFileEnding (const std::string &filename, const std::string &ending);
-std::string cutFileEnding (std::string filename, const std::string &ending = "");
+bool hasFileEnding(const std::string &filename, const std::string &ending);
+std::string cutFileEnding(std::string filename, const std::string &ending = "");
 
 // some generic template functions for delete algorithms
 template <typename T>
-void delete_one (T *t)
+void delete_one(T *t)
 {
   delete t;
   t = NULL;
 }
 
 template <typename T>
-void delete_array (T *t)
+void delete_array(T *t)
 {
   delete [] t;
   t = NULL;
@@ -95,13 +95,13 @@ std::ostream &operator << (std::ostream &s, std::vector<T> iv)
 
 /// print Vector on std::cout
 template <typename T>
-void printVector (std::vector<T> iv)
+void printVector(std::vector<T> iv)
 {
   std::cout << "[";
-  for (unsigned i = 0; i < iv.size (); i++)
+  for (unsigned i = 0; i < iv.size(); i++)
   {
     std::cout << iv[i];
-    if (i < iv.size ()-1)
+    if (i < iv.size() - 1)
       std::cout << ",";
   }
   std::cout << "]" << std::endl;
@@ -109,7 +109,7 @@ void printVector (std::vector<T> iv)
 
 /// create std::string from any number
 template <typename T>
-std::string toString (const T &thing, int w = 0, int p = 0)
+std::string toString(const T &thing, int w = 0, int p = 0)
 {
   std::ostringstream os;
   os << std::setw(w) << std::setprecision(p) << thing;
@@ -121,14 +121,14 @@ std::string toString (const T &thing, int w = 0, int p = 0)
 /// seperator - token separator characters
 /// result - sequential string container
 template <typename T>
-void StringToken (const std::string& line, const std::string &separator, T& result)
+void StringToken(const std::string &line, const std::string &separator, T &result)
 {
   std::string::size_type start = line.find_first_not_of(separator);
   if (std::string::npos == start) return;  // nothing found
 
   do
   {
-    std::string::size_type end = line.find_first_of(separator,start);
+    std::string::size_type end = line.find_first_of(separator, start);
     if (std::string::npos == end)
     {
       result.push_back(line.substr(start));
@@ -139,20 +139,21 @@ void StringToken (const std::string& line, const std::string &separator, T& resu
       result.push_back(line.substr(start, end - start));
       start = line.find_first_not_of(separator, end);
     }
-  } while (std::string::npos != start);
+  }
+  while (std::string::npos != start);
 
 }
 
 
 template <typename T>
-void stringTokeni(const string& line, const std::string& separator, T& result)
+void stringTokeni(const string &line, const std::string &separator, T &result)
 {
   std::string::size_type start = line.find_first_not_of(separator);
   if (std::string::npos == start) return;  // nothing found
 
   do
   {
-    std::string::size_type end = line.find_first_of(separator,start);
+    std::string::size_type end = line.find_first_of(separator, start);
     if (std::string::npos == end)
     {
       result.push_back(std::atoi(line.substr(start).c_str()));
@@ -163,9 +164,10 @@ void stringTokeni(const string& line, const std::string& separator, T& result)
       result.push_back(std::atoi(line.substr(start, end - start).c_str()));
       start = line.find_first_not_of(separator, end);
     }
-  } while (std::string::npos != start);
+  }
+  while (std::string::npos != start);
 }
 
-int replaceString (const string& match, const string& replace, string& str, unsigned int maxReplace = 0);
+int replaceString(const string &match, const string &replace, string &str, unsigned int maxReplace = 0);
 
 #endif	// UTIL_H

@@ -3,70 +3,70 @@
 
 using namespace std;
 
-Text::Text ()
+Text::Text()
 {
-  init ();
+  init();
 }
 
-Text::Text (const Point &pos) :
-  mPos (pos)
+Text::Text(const Point &pos) :
+  mPos(pos)
 {
-  init ();
+  init();
 }
 
-Text::Text (const std::string &text) :
-  mText (text)
+Text::Text(const std::string &text) :
+  mText(text)
 {
-  init ();
+  init();
 }
 
-void Text::init ()
+void Text::init()
 {
   mSize = 0;
 }
 
-void Text::setText (const std::string &text)
+void Text::setText(const std::string &text)
 {
   mText = text;
 }
 
-const std::string Text::getText () const
+const std::string Text::getText() const
 {
   return mText;
 }
 
-void Text::moveTo (const Point &pos)
+void Text::moveTo(const Point &pos)
 {
   mPos = pos;
 }
 
-void Text::setFontSize (double size)
+void Text::setFontSize(double size)
 {
   mSize = size;
 }
 
-double Text::getFontSize ()
+double Text::getFontSize()
 {
-  return mSize;  
+  return mSize;
 }
 
-void Text::render (Cairo::RefPtr<Cairo::Context> cr)
+void Text::render(Cairo::RefPtr<Cairo::Context> cr)
 {
   // render text always in black
-  cr->set_source_rgba (0, 0, 0, 1);
-  
-  cr->select_font_face ("Sans", Cairo::FONT_SLANT_NORMAL,
-                        Cairo::FONT_WEIGHT_NORMAL);
+  cr->set_source_rgba(0, 0, 0, 1);
 
-  cr->set_font_size (mSize);
+  cr->select_font_face("Sans", Cairo::FONT_SLANT_NORMAL,
+                       Cairo::FONT_WEIGHT_NORMAL);
 
-  cr->move_to (mPos.x, mPos.y);
+  cr->set_font_size(mSize);
 
-  cr->show_text (mText);  
-  
+  cr->move_to(mPos.x, mPos.y);
+
+  cr->show_text(mText);
+
   //cr->text_path ("Text"); // outline text
 
-  
-  
-  cr->stroke ();
+
+
+  cr->stroke();
 }

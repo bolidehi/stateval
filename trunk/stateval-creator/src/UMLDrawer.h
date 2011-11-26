@@ -28,63 +28,63 @@ public:
     ModeAddTransitionStart,
     ModeAddTransitionEnd
   };
-  
-  UMLDrawer (BaseObjectType* cobject, 
-             const Glib::RefPtr<Gtk::Builder>& refGlade);
-  virtual ~UMLDrawer ();
 
-  void newDocument ();
+  UMLDrawer(BaseObjectType *cobject,
+            const Glib::RefPtr<Gtk::Builder>& refGlade);
+  virtual ~UMLDrawer();
 
-  void deselectAllObjects ();
-  
-  void setOperationMode (UMLDrawerStates);
+  void newDocument();
 
-  UMLDrawerStates getOperationMode ();
+  void deselectAllObjects();
 
-  void selectObject (SC::Object *scObject);
-  
-  void deselectObject ();
+  void setOperationMode(UMLDrawerStates);
 
-  SC::Object *getSelectedObject ();
-  
-  void addState (const Point &pos);
-  
-  void addCondition (const Point &pos);
+  UMLDrawerStates getOperationMode();
 
-  void addHistory (const Point &pos);
-  
-  void addTransition (const SC::Object &fromState, const SC::Object &toState);
-  
+  void selectObject(SC::Object *scObject);
+
+  void deselectObject();
+
+  SC::Object *getSelectedObject();
+
+  void addState(const Point &pos);
+
+  void addCondition(const Point &pos);
+
+  void addHistory(const Point &pos);
+
+  void addTransition(const SC::Object &fromState, const SC::Object &toState);
+
 protected:
   //Override default signal handler:
-  bool on_expose_event (GdkEventExpose* event);
+  bool on_expose_event(GdkEventExpose *event);
 
-  bool on_button_press_event (GdkEventButton* event);
-  
-  bool on_button_release_event  (GdkEventButton *event);
-  
-  bool on_motion_notify_event (GdkEventMotion* event);
-  
-  void redraw ();
-  
-  void clear ();
+  bool on_button_press_event(GdkEventButton *event);
+
+  bool on_button_release_event(GdkEventButton *event);
+
+  bool on_motion_notify_event(GdkEventMotion *event);
+
+  void redraw();
+
+  void clear();
 
 private:
-  void connectSignalHandlers ();
-  
-  void getGladeWidgets ();
-  
-  void onUmlEditDel ();
-  
+  void connectSignalHandlers();
+
+  void getGladeWidgets();
+
+  void onUmlEditDel();
+
   Glib::RefPtr<Gtk::Builder> mXMLGlade;
   Cairo::RefPtr<Cairo::Context> cr;
 
-  std::list <SC::Object*> mSCObjectList; // TODO: free this!!
+  std::list <SC::Object *> mSCObjectList; // TODO: free this!!
 
   enum UMLDrawerStates mOperationState;
-  
+
   SC::Object *mSelectedObject;
-  
+
   Gtk::Menu *mUmlEditMenu;
   Gtk::MenuItem *mUmlEditDel;
 

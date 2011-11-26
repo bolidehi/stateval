@@ -10,20 +10,20 @@
 class Circle : public Primitive
 {
 public:
-  Circle ();
-  Circle (double radius);
-  Circle (double x, double y, double radius);
-  
-  void setRadius (double radius);
-  double getRadius ();
-  
-  void setFill (bool fill);
-  bool getFill ();
-  
-  void moveTo (const Point &pos);
-  
-  void render (Cairo::RefPtr<Cairo::Context> cr);
-  
+  Circle();
+  Circle(double radius);
+  Circle(double x, double y, double radius);
+
+  void setRadius(double radius);
+  double getRadius();
+
+  void setFill(bool fill);
+  bool getFill();
+
+  void moveTo(const Point &pos);
+
+  void render(Cairo::RefPtr<Cairo::Context> cr);
+
 protected:
   double mRadius;
   bool mFill;

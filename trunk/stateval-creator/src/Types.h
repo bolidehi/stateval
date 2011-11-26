@@ -15,8 +15,8 @@ enum HitPosition
 typedef Size <double> Sized;
 typedef Rect <double> Rectd;
 
-Sized convertPoint2Sized (const Point &pos);
+Sized convertPoint2Sized(const Point &pos);
 
-Point convertSized2Point (const Sized &size);
+Point convertSized2Point(const Sized &size);
 
 #endif // TYPES_H

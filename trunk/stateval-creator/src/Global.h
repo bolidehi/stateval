@@ -2,7 +2,7 @@
 #define GLOBAL_H
 
 #ifdef HAVE_CONFIG_H
-  #include <config.h>
+#include <config.h>
 #endif
 
 #include <string>
@@ -17,28 +17,34 @@ using std::string;
 class UMLDrawer;
 
 /*
- * Singleton 
+ * Singleton
  */
 class Global
 {
 public:
-  static Global& instance();
-  
+  static Global &instance();
+
   //void setAppProgressBar (AppProgressBar *appProgressBar) {m_appProgressBar = appProgressBar;}
   //AppProgressBar *getAppProgressBar () {return m_appProgressBar;}
 
-  void setUMLDrawer (UMLDrawer *umlDrawer) {mUMLDrawer = umlDrawer;}
-  UMLDrawer *getUMLDrawer () {return mUMLDrawer;}
+  void setUMLDrawer(UMLDrawer *umlDrawer)
+  {
+    mUMLDrawer = umlDrawer;
+  }
+  UMLDrawer *getUMLDrawer()
+  {
+    return mUMLDrawer;
+  }
 
-  void init ();
-  
+  void init();
+
 private: // Singleton
-  Global () {}
-  Global (const Global&);
+  Global() {}
+  Global(const Global &);
   //Global(Global&);
-  virtual ~Global () {}
+  virtual ~Global() {}
   //void operator = (Global&);
-  
+
   //AppProgressBar *m_appProgressBar;
   UMLDrawer *mUMLDrawer;
 };
