@@ -29,22 +29,22 @@
 #define MATHUTIL_H 1
 
 #ifdef HAVE_CONFIG_H
-  #include <config.h>
+#include <config.h>
 #endif
 
 #include <cmath>
 
 /// "Wrap" an angle in range -pi...pi by adding the correct multiple of 2 pi
-float wrapPi (float theta);
+float wrapPi(float theta);
 
 /// convert angle from radians to degree
-inline double rad2deg (double x)
+inline double rad2deg(double x)
 {
   return x * 180.0 / M_PI;
 }
 
 /// convert angle from degree to radians
-inline double deg2rad (double x)
+inline double deg2rad(double x)
 {
   return x * M_PI / 180.0;
 }
@@ -55,10 +55,10 @@ inline double deg2rad (double x)
 
 /// return true if 'value' between 'range1' and 'range2' - including bounds!
 template <typename T>
-bool between (T value, T range1, T range2)
+bool between(T value, T range1, T range2)
 {
-  if ( ((value >= range1) && (value <=range2)) ||
-       ((value >= range2) && (value <=range1)) )
+  if (((value >= range1) && (value <= range2)) ||
+      ((value >= range2) && (value <= range1)))
   {
     return true;
   }
@@ -67,10 +67,10 @@ bool between (T value, T range1, T range2)
 
 /// fuzzy a value (very primitive implementation!)
 template <typename T, typename T2>
-T2 pseudoFuzzy (T total, T part, T2 fuzzyable)
+T2 pseudoFuzzy(T total, T part, T2 fuzzyable)
 {
   T2 ratio;
-  T null_value (0);
+  T null_value(0);
 
   if (part != null_value)
   {
@@ -85,16 +85,16 @@ T2 pseudoFuzzy (T total, T part, T2 fuzzyable)
 
 /// return true if 'unexact' in 'exact' +- 'tolerance'
 template <typename T>
-bool inTolerance (T exact, T unexact, T tolerance)
+bool inTolerance(T exact, T unexact, T tolerance)
 {
-  return between (unexact, exact - tolerance, exact + tolerance);
+  return between(unexact, exact - tolerance, exact + tolerance);
 }
 
 /// compute the absolute value of a value
 template <typename T>
-T abs (T value)
+T abs(T value)
 {
-  T null_value (0);
+  T null_value(0);
 
   if (value < null_value)
     value = -value;
@@ -104,25 +104,25 @@ T abs (T value)
 
 /// return the distance of two values
 template <typename T>
-T dist (T value1, T value2)
+T dist(T value1, T value2)
 {
   T d = value1 - value2;
-  T null_value (0);
+  T null_value(0);
 
   return abs <T> (d);
 }
 
 /// return the value exact between both values (something like arithmetic middle (a+b)/2)
 template <typename T>
-T middle (T value1, T value2)
+T middle(T value1, T value2)
 {
   if (value1 < value2)
   {
-    return value1 + (dist (value1, value2) * 0.5);
+    return value1 + (dist(value1, value2) * 0.5);
   }
   else if (value1 > value2)
   {
-    return value1 - (dist (value1, value2) * 0.5);
+    return value1 - (dist(value1, value2) * 0.5);
   }
 
   // both have same value, return one of them
@@ -131,7 +131,7 @@ T middle (T value1, T value2)
 
 /// Clap value to bounds from limit_val (from both sides!)
 template <typename T>
-T limit (T value, T limit_val)
+T limit(T value, T limit_val)
 {
   if (value > limit_val)
     value = limit_val;
@@ -151,7 +151,7 @@ T limit (T value, T limit_val)
  * \return -1 if not monotonic
  */
 template <typename T>
-int hasMonotonie (T value0, T value1, T value2)
+int hasMonotonie(T value0, T value1, T value2)
 {
   // strictly monotonic increasing
   if ((value0 > value1) && (value1 > value2))

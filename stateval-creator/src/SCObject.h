@@ -7,29 +7,30 @@
 /* Project */
 #include "Types.h"
 
-namespace SC {
+namespace SC
+{
 
 class Object
 {
-public:  
-  Object ();
-  Object (const Point &pos);
-  virtual ~Object ();
-  
-  virtual void moveTo (const Point &pos);
+public:
+  Object();
+  Object(const Point &pos);
+  virtual ~Object();
 
-  virtual void resizeTo (const Sized &size) = 0;
- 
-  virtual const Point getPos () const;
-  
-  virtual void render (Cairo::RefPtr<Cairo::Context> cr) = 0;
-  
-  virtual bool isHitBy (HitPosition hit, const Point &pos) = 0;
+  virtual void moveTo(const Point &pos);
 
-  void setSelected (bool state);
+  virtual void resizeTo(const Sized &size) = 0;
 
-  bool isSelected ();
-  
+  virtual const Point getPos() const;
+
+  virtual void render(Cairo::RefPtr<Cairo::Context> cr) = 0;
+
+  virtual bool isHitBy(HitPosition hit, const Point &pos) = 0;
+
+  void setSelected(bool state);
+
+  bool isSelected();
+
 protected:
   Point mPos;
   bool mSelected;

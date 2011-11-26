@@ -7,8 +7,8 @@
 /**
  */
 /* ========================================================================== */
-Color::Color (const Color& inColor)
-: r(inColor.r), g(inColor.g), b(inColor.b), a(inColor.a)
+Color::Color(const Color &inColor)
+  : r(inColor.r), g(inColor.g), b(inColor.b), a(inColor.a)
 {
 }
 
@@ -16,7 +16,7 @@ Color::Color (const Color& inColor)
 /**
  */
 /* ========================================================================== */
-Color& Color::operator=(const Color& inRHS)
+Color &Color::operator=(const Color &inRHS)
 {
   r = inRHS.r;
   g = inRHS.g;

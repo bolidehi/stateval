@@ -7,19 +7,19 @@
 class AppMenuBar : public Gtk::MenuBar
 {
 public:
-  AppMenuBar (BaseObjectType* cobject, 
-              const Glib::RefPtr<Gtk::Builder>& refGlade);
-  ~AppMenuBar ();
-  
+  AppMenuBar(BaseObjectType *cobject,
+             const Glib::RefPtr<Gtk::Builder>& refGlade);
+  ~AppMenuBar();
+
 protected:
-  void getGladeWidgets ();
-  void connectSignalHandlers ();
-  
+  void getGladeWidgets();
+  void connectSignalHandlers();
+
   // signal handlers
   /*void onEditPreferencesActivate ();
   void onFileExitActivate ();
   void onHelpInfoActivate ();*/
-  
+
 private:
   Glib::RefPtr<Gtk::Builder> xml_glade;
   /*Gtk::MenuItem *m_menuEditPreferences;

@@ -13,13 +13,13 @@
 #  include <libintl.h>
 #endif
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 
-  return create_gtk_window (argc, argv);
+  return create_gtk_window(argc, argv);
 }
 
-int create_gtk_window (int argc, char **argv)
+int create_gtk_window(int argc, char **argv)
 {
   Gtk::Main kit(argc, argv);
 
@@ -27,21 +27,21 @@ int create_gtk_window (int argc, char **argv)
   Glib::RefPtr<Gtk::Builder> mXMLGlade;
   try
   {
-    mXMLGlade = createGlade ();
+    mXMLGlade = createGlade();
   }
-  catch(const Glib::FileError& ex)
+  catch (const Glib::FileError &ex)
   {
     std::cerr << "FileError: " << ex.what() << std::endl;
     return 1;
   }
-  catch(const Gtk::BuilderError& ex)
+  catch (const Gtk::BuilderError &ex)
   {
     std::cerr << "BuilderError: " << ex.what() << std::endl;
     return 1;
   }
 
-  Application* app = NULL;
-  mXMLGlade->get_widget_derived ("Application", app);
+  Application *app = NULL;
+  mXMLGlade->get_widget_derived("Application", app);
   if (app)
   {
     kit.run(*app);

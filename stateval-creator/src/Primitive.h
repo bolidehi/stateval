@@ -10,14 +10,14 @@
 class Primitive
 {
 public:
-  Primitive ();
-  
-  virtual void moveTo (const Point &pos) = 0;
-  
-  virtual void render (Cairo::RefPtr<Cairo::Context> cr) = 0;
+  Primitive();
+
+  virtual void moveTo(const Point &pos) = 0;
+
+  virtual void render(Cairo::RefPtr<Cairo::Context> cr) = 0;
 
 protected:
-  
+
 };
 
 
