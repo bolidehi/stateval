@@ -1,0 +1,1 @@
+A graphical statemachine editor for StatEval. The implementation is done with Gtkmm and Cairo.
