@@ -15,7 +15,7 @@
 #ifdef GLADE_HEADER_COMPILE
 #include "state_glade.h"
 #else
-#define GLADE_FILE "state.glade"
+#define GLADE_FILE "stateval-creator.glade"
 #endif
 
 using namespace std;
