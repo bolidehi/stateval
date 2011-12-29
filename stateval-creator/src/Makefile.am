@@ -2,8 +2,8 @@
 
 ## Created by Anjuta
 
-gladedir = $(datadir)/state/glade
-glade_DATA = state.glade
+gladedir = $(datadir)/stateval-creator/glade
+glade_DATA = stateval-creator.glade
 
 AM_CPPFLAGS = \
 	$(STATE_CFLAGS)
@@ -12,9 +12,9 @@ AM_CFLAGS =\
 	 -Wall\
 	 -g
 
-bin_PROGRAMS = state
+bin_PROGRAMS = stateval-creator
 
-state_SOURCES = \
+stateval_creator_SOURCES = \
 	main.cpp\
 	UMLDrawer.cpp\
 	UMLDrawer.h \
@@ -61,8 +61,8 @@ state_SOURCES = \
 	Color.cpp \
 	Color.h
 
-state_LDFLAGS = 
+stateval_creator_LDFLAGS = 
 
-state_LDADD = $(STATE_LIBS)
+stateval_creator_LDADD = $(STATE_LIBS)
 
 EXTRA_DIST = $(glade_DATA)

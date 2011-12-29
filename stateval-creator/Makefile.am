@@ -4,7 +4,7 @@
 SUBDIRS = src po \
 	pixmaps
 
-statedocdir = ${prefix}/doc/state
+statedocdir = ${prefix}/doc/stateval-creator
 statedoc_DATA = \
 	README\
 	COPYING\
