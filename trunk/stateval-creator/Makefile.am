@@ -13,6 +13,8 @@ statedoc_DATA = \
 	INSTALL\
 	NEWS
 
+ACLOCAL_AMFLAGS = -I m4
+
 EXTRA_DIST = $(statedoc_DATA)
 
 # Copy all the spec files. Of cource, only one is actually used.
