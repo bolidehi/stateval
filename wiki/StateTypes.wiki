@@ -1,0 +1,17 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+There're some specific state types in stateval. Syntax on this page is smxml.
+
+
+= SimpleState =
+This state is used for all states which do not reference a view or include other states. So it's used also for initial and finish states at the moment.
+
+= CompoundState =
+Could be parent of other states to group them together. This helps to create logical state groups.
+
+= ViewState =
+Must reference a view. The definition of a view is defined by a specific viewmanager plugin. In most cases a view is a graphical screen which contains drawing elements and widgets. But for sure a view could contain what ever you like.
+
+= DecisionState =
+Choose at runtime based on variable value which state should be walked to. There's a default transition which could be used to 
