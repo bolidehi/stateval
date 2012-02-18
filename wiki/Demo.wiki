@@ -1,3 +1,4 @@
-= Videos =
+#summary Show a video of a mobile demo
 
+= Videos =
 <wiki:video url="http://www.youtube.com/watch?v=nkFp9a9AwmM"/>
