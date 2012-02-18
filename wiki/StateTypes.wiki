@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Describe the type of available states.
 
 = Introduction =
 There're some specific state types in stateval. Syntax on this page is smxml.
