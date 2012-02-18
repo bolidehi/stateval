@@ -1,0 +1,10 @@
+= Introduction =
+
+If you've written a nice smxml statemachine description it's possible to display it as SVG graphic.
+
+
+= Details =
+
+Run in doc/graph_gen the script generate_svg.sh with smxml input file and see output generated in generated folder. You need graphviz/dot installed for this. The DotML transformator is included in the source.
+
+See here output of mobile example:
