@@ -1,3 +1,5 @@
+#summary Show how to display statemachine graph as picture
+
 = Introduction =
 
 If you've written a nice smxml statemachine description it's possible to display it as SVG graphic.
